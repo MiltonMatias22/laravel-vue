@@ -55,11 +55,11 @@
                 @endguest
             </div>
         </navtop-component>
-    </div>
-    
-    <main class="py-4">
-        @yield('content')
-    </main>
+
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>    
 </body>
 </html>
 

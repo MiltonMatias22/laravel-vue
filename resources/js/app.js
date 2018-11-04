@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('navtop-component', require('./components/NavTopComponent.vue'));
+Vue.component('panel-component', require('./components/PanelComponent.vue'));
 
 const app = new Vue({
     el: '#app'
