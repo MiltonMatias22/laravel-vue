@@ -8,25 +8,31 @@
                 <div slot="panel-content">
                     <div class="row">
                         <div class="col-md-4">
-                            <panel-component textheader="Card 1" classparam="text-white bg-primary mt-2">
-                                <div slot="panel-content">
-                                    <p>My card 1</p>
-                                </div>
-                            </panel-component>
+                            <box-component 
+                                boxclassparam="bg-info"
+                                iconclassparam="ion ion-bag"
+                                numtext="200"
+                                bodytext="New orders"
+                                url="http://store.com/new-order/info">
+                            </box-component>
+                        </div>
+                        <div class="col-md-4 ">
+                            <box-component
+                                boxclassparam="bg-success"
+                                iconclassparam="ion ion-stats-bars"
+                                numtext="53%"
+                                bodytext="Bounce rate"
+                                url="http://store.com/bounce-rate/info">
+                            </box-component>
                         </div>
                         <div class="col-md-4">
-                            <panel-component textheader="Card 2" classParam="text-white bg-success mt-2">
-                                <div slot="panel-content">
-                                    <p>My card 2</p>
-                                </div>
-                            </panel-component>
-                        </div>
-                        <div class="col-md-4">
-                            <panel-component textheader="Card 3" classParam="text-white bg-secondary mt-2">
-                                <div slot="panel-content">
-                                    <p>My card 3</p>
-                                </div>
-                            </panel-component>
+                            <box-component 
+                                boxclassparam="bg-dark"
+                                iconclassparam="ion ion-person-add"
+                                numtext="50"
+                                bodytext="User registrations"
+                                url="http://store.com/user/info">
+                            </box-component>
                         </div>
                     </div>
                 </div>

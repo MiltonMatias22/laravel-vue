@@ -14,7 +14,7 @@
         props: ['textheader','classparam'],
         computed: {
             defineCor: function(){
-                return "card " + (this.classparam || "bg-light");
+                return "card " + (this.classparam || "bg-white");
             },
         },
     }
