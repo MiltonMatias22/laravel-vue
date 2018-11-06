@@ -12,6 +12,11 @@
                     'Author',
                     'Date',
                     'Action'
+                ]"
+                v-bind:tbodyitensparam="[
+                    ['1','PHP course','My PHP article','Article Author 1','0000/00/00'],
+                    ['2','VUE course','My VUE article','Article Author 2','0000/00/00'],
+                    ['3','HTML course','My HTML article','Article Author 3','0000/00/00']
                 ]">
             </table-component>
         </div>

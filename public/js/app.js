@@ -48284,7 +48284,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48318,13 +48318,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam']
+    props: ['tableheaderparam', 'tbodyitensparam']
 });
 
 /***/ }),
@@ -48342,13 +48338,29 @@ var render = function() {
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.tableheadparam, function(item) {
+          _vm._l(_vm.tableheaderparam, function(item) {
             return _c("th", { key: item.id }, [_vm._v(_vm._s(item))])
           })
         )
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _c(
+        "tbody",
+        _vm._l(_vm.tbodyitensparam, function(items) {
+          return _c(
+            "tr",
+            { key: items.id },
+            [
+              _vm._l(items, function(item) {
+                return _c("td", { key: item.id }, [_vm._v(_vm._s(item))])
+              }),
+              _vm._v(" "),
+              _vm._m(1, true)
+            ],
+            2
+          )
+        })
+      )
     ])
   ])
 }
@@ -48366,37 +48378,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", [
-      _c("tr", [
-        _c("td", { attrs: { scope: "row" } }, [_vm._v("1")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("my article")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("My great article")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Author name")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("00/00/0000")]),
-        _vm._v(" "),
-        _c("td", [
-          _c(
-            "a",
-            { staticClass: "btn btn-info btn-sm", attrs: { href: "#" } },
-            [_vm._v("Details")]
-          ),
-          _vm._v(" |\n                    "),
-          _c(
-            "a",
-            { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } },
-            [_vm._v("Edit")]
-          ),
-          _vm._v(" |\n                    "),
-          _c(
-            "a",
-            { staticClass: "btn btn-danger btn-sm", attrs: { href: "#" } },
-            [_vm._v("Remove")]
-          )
-        ])
+    return _c("td", [
+      _c("a", { staticClass: "btn btn-info btn-sm", attrs: { href: "#" } }, [
+        _vm._v("Details")
+      ]),
+      _vm._v(" |\n                    "),
+      _c("a", { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } }, [
+        _vm._v("Edit")
+      ]),
+      _vm._v(" |\n                    "),
+      _c("a", { staticClass: "btn btn-danger btn-sm", attrs: { href: "#" } }, [
+        _vm._v("Remove")
       ])
     ])
   }

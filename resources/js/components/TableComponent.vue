@@ -4,16 +4,12 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th v-for="item in tableheadparam" :key="item.id">{{item}}</th>
+                    <th v-for="item in tableheaderparam" :key="item.id">{{item}}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>my article</td>
-                    <td>My great article</td>
-                    <td>Author name</td>
-                    <td>00/00/0000</td>
+                <tr v-for="items in tbodyitensparam" :key="items.id">
+                    <td v-for="item in items" :key="item.id">{{item}}</td>
                     <td>
                         <a href="#" class="btn btn-info btn-sm">Details</a> |
                         <a href="#" class="btn btn-warning btn-sm">Edit</a> |
@@ -27,7 +23,7 @@
 
 <script>
     export default {
-        props: ['tableheaderparam'],
+        props: ['tableheaderparam','tbodyitensparam'],
     }
 </script>
 
