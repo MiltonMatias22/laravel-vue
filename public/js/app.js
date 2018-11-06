@@ -48275,7 +48275,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48329,7 +48329,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam'],
+    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam', 'orderitems', 'ordercolumn'],
     data: function data() {
         return {
             searchparam: ''
@@ -48344,6 +48344,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         listItems: function listItems() {
             var _this = this;
 
+            var order = this.orderitems.toLowerCase() || "asc";
+            var orderColmn = parseInt(this.orderColmn) || 0;
+            if (order == "asc") {
+                //order asc
+                this.tbodyitensparam.sort(function (a, b) {
+                    if (a[orderColmn] > b[orderColmn]) {
+                        return 1;
+                    }
+                    if (a[orderColmn] < b[orderColmn]) {
+                        return -1;
+                    }
+                    return 0;
+                });
+            } else {
+                //order desc
+                this.tbodyitensparam.sort(function (a, b) {
+                    if (a[orderColmn] < b[orderColmn]) {
+                        return 1;
+                    }
+                    if (a[orderColmn] > b[orderColmn]) {
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
             return this.tbodyitensparam.filter(function (res) {
                 for (var index = 0; index < res.length; index++) {
                     if ((res[index] + "").toLowerCase().indexOf(_this.searchparam.toLowerCase()) >= 0) {

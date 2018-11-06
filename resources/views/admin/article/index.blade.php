@@ -22,6 +22,8 @@
                 urleditparam="#edit"
                 urlremoveparam="#delete"
                 tokenparam="788095004"
+                orderitems="asc"
+                ordercolumn="1"
                 >
             </table-component>
         </div>

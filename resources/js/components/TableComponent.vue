@@ -48,7 +48,9 @@
             'urldateilsparam',
             'urleditparam',
             'urlremoveparam',
-            'tokenparam'
+            'tokenparam',
+            'orderitems',
+            'ordercolumn'            
         ],
         data: function (){
             return {
@@ -62,6 +64,27 @@
         },
         computed: {
             listItems: function () {
+                let order = this.orderitems.toLowerCase() || "asc";
+                let orderColmn = parseInt(this.orderColmn) || 0;
+                if (order == "asc") {
+                    //order asc
+                    this.tbodyitensparam.sort(
+                        function (a,b) {
+                            if(a[orderColmn] > b[orderColmn]){return 1}
+                            if(a[orderColmn] < b[orderColmn]){return -1}
+                            return 0;
+                        }
+                    );
+                }else{
+                    //order desc
+                    this.tbodyitensparam.sort(
+                        function (a,b) {
+                            if(a[orderColmn] < b[orderColmn]){return 1}
+                            if(a[orderColmn] > b[orderColmn]){return -1}
+                            return 0;
+                        }
+                    );
+                }
                 return this.tbodyitensparam.filter(res => {
                     for (let index = 0; index < res.length; index++) {
                         if ((res[index] +"").toLowerCase().indexOf(this.searchparam.toLowerCase()) >= 0) {
