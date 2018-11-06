@@ -48284,7 +48284,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48318,9 +48318,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam', 'tbodyitensparam']
+    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam']
 });
 
 /***/ }),
@@ -48332,15 +48337,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _vm.urlcreateparam
+      ? _c(
+          "a",
+          {
+            staticClass: "btn btn-success",
+            attrs: { href: _vm.urlcreateparam }
+          },
+          [_vm._v("New "), _c("span", { staticClass: "ion ion-plus" })]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover" }, [
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.tableheaderparam, function(item) {
-            return _c("th", { key: item.id }, [_vm._v(_vm._s(item))])
-          })
+          [
+            _vm._l(_vm.tableheaderparam, function(item) {
+              return _c("th", { key: item.id }, [_vm._v(_vm._s(item))])
+            }),
+            _vm._v(" "),
+            _vm.urldateilsparam || _vm.urleditparam || _vm.urlremoveparam
+              ? _c("th", [_vm._v("Action")])
+              : _vm._e()
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -48355,7 +48376,66 @@ var render = function() {
                 return _c("td", { key: item.id }, [_vm._v(_vm._s(item))])
               }),
               _vm._v(" "),
-              _vm._m(1, true)
+              _vm.urldateilsparam || _vm.urleditparam || _vm.urlremoveparam
+                ? _c("td", [
+                    _vm.urlremoveparam && _vm.tokenparam
+                      ? _c(
+                          "form",
+                          {
+                            staticClass: "form-inline",
+                            attrs: { action: "", method: "post" }
+                          },
+                          [
+                            _vm.urldateilsparam
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-info btn-sm",
+                                    attrs: { href: _vm.urldateilsparam }
+                                  },
+                                  [_vm._v("Details")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" |\n                        "),
+                            _vm.urleditparam
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-warning btn-sm",
+                                    attrs: { href: _vm.urleditparam }
+                                  },
+                                  [_vm._v("Edit")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" |\n                        "),
+                            _vm.urlremoveparam
+                              ? _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-danger btn-sm",
+                                    attrs: { href: _vm.urlremoveparam }
+                                  },
+                                  [_vm._v("Remove")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: {
+                                type: "hidden",
+                                name: "_method",
+                                value: "DELETE"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.tokenparam }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                : _vm._e()
             ],
             2
           )
@@ -48364,35 +48444,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "btn btn-success", attrs: { href: "" } }, [
-      _vm._v("New "),
-      _c("span", { staticClass: "ion ion-plus" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "btn btn-info btn-sm", attrs: { href: "#" } }, [
-        _vm._v("Details")
-      ]),
-      _vm._v(" |\n                    "),
-      _c("a", { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } }, [
-        _vm._v("Edit")
-      ]),
-      _vm._v(" |\n                    "),
-      _c("a", { staticClass: "btn btn-danger btn-sm", attrs: { href: "#" } }, [
-        _vm._v("Remove")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
