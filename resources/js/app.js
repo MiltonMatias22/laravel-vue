@@ -19,6 +19,7 @@ Vue.component('navtop-component', require('./components/NavTopComponent.vue'));
 Vue.component('panel-component', require('./components/PanelComponent.vue'));
 Vue.component('box-component', require('./components/BoxComponent.vue'));
 Vue.component('page-component', require('./components/PageComponent.vue'));
+Vue.component('table-component', require('./components/TableComponent.vue'));
 
 const app = new Vue({
     el: '#app'
