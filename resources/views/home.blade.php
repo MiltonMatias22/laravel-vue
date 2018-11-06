@@ -8,27 +8,27 @@
                     <div class="col-md-4">
                         <box-component 
                             boxclassparam="bg-info"
-                            iconclassparam="ion ion-bag"
+                            iconclassparam="ion ion-pie-graph"
                             numtext="200"
-                            bodytext="New orders"
+                            bodytext="Articles"
                             url="http://store.com/new-order/info">
                         </box-component>
                     </div>
                     <div class="col-md-4">
                         <box-component
                             boxclassparam="bg-success"
-                            iconclassparam="ion ion-stats-bars"
+                            iconclassparam="ion ion-person-stalker"
                             numtext="53%"
-                            bodytext="Bounce rate"
+                            bodytext="Users"
                             url="http://store.com/bounce-rate/info">
                         </box-component>
                     </div>
                     <div class="col-md-4">
                         <box-component 
                             boxclassparam="bg-dark"
-                            iconclassparam="ion ion-person-add"
+                            iconclassparam="ion ion-person"
                             numtext="50"
-                            bodytext="User registrations"
+                            bodytext="Author"
                             url="http://store.com/user/info">
                         </box-component>
                     </div>
