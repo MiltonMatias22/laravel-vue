@@ -11,7 +11,7 @@
                             iconclassparam="ion ion-pie-graph"
                             numtext="200"
                             bodytext="Articles"
-                            url="http://store.com/new-order/info">
+                            url="{{route("articles.index")}}">
                         </box-component>
                     </div>
                     <div class="col-md-4">

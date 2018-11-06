@@ -14,7 +14,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return "Hello, World!";
+        return view('admin.article.index');
     }
 
     /**
