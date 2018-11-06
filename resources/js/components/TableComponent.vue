@@ -4,12 +4,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th v-for="item in tableheadparam" :key="item.id">{{item}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +27,7 @@
 
 <script>
     export default {
-        
+        props: ['tableheaderparam'],
     }
 </script>
 

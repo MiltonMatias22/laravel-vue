@@ -48284,7 +48284,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48322,13 +48322,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['tableheaderparam']
+});
 
 /***/ }),
 /* 67 */
@@ -48338,68 +48335,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover" }, [
+      _c("thead", [
+        _c(
+          "tr",
+          _vm._l(_vm.tableheadparam, function(item) {
+            return _c("th", { key: item.id }, [_vm._v(_vm._s(item))])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("a", { staticClass: "btn btn-success", attrs: { href: "" } }, [
-        _vm._v("New "),
-        _c("span", { staticClass: "ion ion-plus" })
-      ]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", [_vm._v("#")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Title")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Description")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Author")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Date")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Action")])
-          ])
-        ]),
+    return _c("a", { staticClass: "btn btn-success", attrs: { href: "" } }, [
+      _vm._v("New "),
+      _c("span", { staticClass: "ion ion-plus" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tbody", [
+      _c("tr", [
+        _c("td", { attrs: { scope: "row" } }, [_vm._v("1")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("td", { attrs: { scope: "row" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("my article")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("My great article")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Author name")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("00/00/0000")]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-info btn-sm", attrs: { href: "#" } },
-                [_vm._v("Details")]
-              ),
-              _vm._v(" |\n                    "),
-              _c(
-                "a",
-                { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } },
-                [_vm._v("Edit")]
-              ),
-              _vm._v(" |\n                    "),
-              _c(
-                "a",
-                { staticClass: "btn btn-danger btn-sm", attrs: { href: "#" } },
-                [_vm._v("Remove")]
-              )
-            ])
-          ])
+        _c("td", [_vm._v("my article")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("My great article")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Author name")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("00/00/0000")]),
+        _vm._v(" "),
+        _c("td", [
+          _c(
+            "a",
+            { staticClass: "btn btn-info btn-sm", attrs: { href: "#" } },
+            [_vm._v("Details")]
+          ),
+          _vm._v(" |\n                    "),
+          _c(
+            "a",
+            { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } },
+            [_vm._v("Edit")]
+          ),
+          _vm._v(" |\n                    "),
+          _c(
+            "a",
+            { staticClass: "btn btn-danger btn-sm", attrs: { href: "#" } },
+            [_vm._v("Remove")]
+          )
         ])
       ])
     ])

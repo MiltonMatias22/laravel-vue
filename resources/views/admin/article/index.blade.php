@@ -4,7 +4,16 @@
 <page-component collengthparam="12">
     <panel-component textheader="Articles">
         <div slot="panel-content">            
-            <table-component></table-component>
+            <table-component
+                v-bind:tableheaderparam="[
+                    'Id',
+                    'Title',
+                    'Description',
+                    'Author',
+                    'Date',
+                    'Action'
+                ]">
+            </table-component>
         </div>
     </panel-component>
 </page-component>
