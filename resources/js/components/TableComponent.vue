@@ -1,6 +1,14 @@
 <template>
     <div>
-        <a v-if="urlcreateparam" v-bind:href="urlcreateparam" class="btn btn-success">New <span class="ion ion-plus"></span></a>
+        <nav class="navbar navbar-light justify-content-between">
+            <a v-if="urlcreateparam" v-bind:href="urlcreateparam" class="btn btn-success">
+                New <span class="ion ion-plus"></span>
+            </a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" v-model="searchparam"
+                    placeholder="Search" aria-label="Search">
+            </form>
+        </nav>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -9,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(items, index) in tbodyitensparam" :key="items.id">
+                <tr v-for="(items, index) in listItems" :key="items.id">
                     <td v-for="item in items" :key="item.id">{{item}}</td>
                     <td v-if="urldateilsparam || urleditparam || urlremoveparam">
                         <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam" method="post" class="form-inline">
@@ -42,10 +50,28 @@
             'urlremoveparam',
             'tokenparam'
         ],
+        data: function (){
+            return {
+                searchparam: '',
+            }            
+        },
         methods: {
             removeItem: function(index) {
                 document.getElementById(index).submit();
             },
+        },
+        computed: {
+            listItems: function () {
+                return this.tbodyitensparam.filter(res => {
+                    for (let index = 0; index < res.length; index++) {
+                        if ((res[index] +"").toLowerCase().indexOf(this.searchparam.toLowerCase()) >= 0) {
+                            return true;
+                        }
+                    }
+                        return false;
+                });
+                return this.tbodyitensparam;
+            }
         },
     }
 </script>
