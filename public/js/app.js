@@ -48284,7 +48284,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48323,9 +48323,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam']
+    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam'],
+    methods: {
+        removeItem: function removeItem(index) {
+            document.getElementById(index).submit();
+        }
+    }
 });
 
 /***/ }),
@@ -48367,7 +48377,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.tbodyitensparam, function(items) {
+        _vm._l(_vm.tbodyitensparam, function(items, index) {
           return _c(
             "tr",
             { key: items.id },
@@ -48378,12 +48388,16 @@ var render = function() {
               _vm._v(" "),
               _vm.urldateilsparam || _vm.urleditparam || _vm.urlremoveparam
                 ? _c("td", [
-                    _vm.urlremoveparam && _vm.tokenparam
+                    _vm.tokenparam
                       ? _c(
                           "form",
                           {
                             staticClass: "form-inline",
-                            attrs: { action: "", method: "post" }
+                            attrs: {
+                              id: index,
+                              action: _vm.urlremoveparam,
+                              method: "post"
+                            }
                           },
                           [
                             _vm.urldateilsparam
@@ -48413,7 +48427,12 @@ var render = function() {
                                   "a",
                                   {
                                     staticClass: "btn btn-danger btn-sm",
-                                    attrs: { href: _vm.urlremoveparam }
+                                    attrs: { href: _vm.urlremoveparam },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.removeItem(index)
+                                      }
+                                    }
                                   },
                                   [_vm._v("Remove")]
                                 )
@@ -48433,7 +48452,40 @@ var render = function() {
                             })
                           ]
                         )
-                      : _vm._e()
+                      : _c("div", [
+                          _vm.urldateilsparam
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-info btn-sm",
+                                  attrs: { href: _vm.urldateilsparam }
+                                },
+                                [_vm._v("Details")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" |\n                        "),
+                          _vm.urleditparam
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-warning btn-sm",
+                                  attrs: { href: _vm.urleditparam }
+                                },
+                                [_vm._v("Edit")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" |\n                        "),
+                          _vm.urlremoveparam
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-danger btn-sm",
+                                  attrs: { href: _vm.urlremoveparam }
+                                },
+                                [_vm._v("Remove")]
+                              )
+                            : _vm._e()
+                        ])
                   ])
                 : _vm._e()
             ],

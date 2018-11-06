@@ -9,16 +9,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="items in tbodyitensparam" :key="items.id">
+                <tr v-for="(items, index) in tbodyitensparam" :key="items.id">
                     <td v-for="item in items" :key="item.id">{{item}}</td>
                     <td v-if="urldateilsparam || urleditparam || urlremoveparam">
-                        <form v-if="urlremoveparam && tokenparam" action="" method="post" class="form-inline">
+                        <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam" method="post" class="form-inline">
                             <a v-if="urldateilsparam" v-bind:href="urldateilsparam" class="btn btn-info btn-sm">Details</a> |
                             <a v-if="urleditparam" v-bind:href="urleditparam" class="btn btn-warning btn-sm">Edit</a> |
-                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" class="btn btn-danger btn-sm">Remove</a>
+                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove</a>
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" v-bind:value="tokenparam">
                         </form>
+                        <div v-else>
+                            <a v-if="urldateilsparam" v-bind:href="urldateilsparam" class="btn btn-info btn-sm">Details</a> |
+                            <a v-if="urleditparam" v-bind:href="urleditparam" class="btn btn-warning btn-sm">Edit</a> |
+                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" class="btn btn-danger btn-sm">Remove</a>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -37,6 +42,11 @@
             'urlremoveparam',
             'tokenparam'
         ],
+        methods: {
+            removeItem: function(index) {
+                document.getElementById(index).submit();
+            },
+        },
     }
 </script>
 
