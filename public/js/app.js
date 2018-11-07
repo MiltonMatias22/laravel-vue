@@ -48275,7 +48275,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48329,23 +48329,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam', 'orderitems', 'ordercolumn'],
+    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam', 'orderitems', 'ordercolmn'],
     data: function data() {
         return {
-            searchparam: ''
+            searchparam: '',
+            orderItems: this.orderitems.toLowerCase() || "asc",
+            orderColmn: parseInt(this.ordercolmn) || 0
         };
     },
     methods: {
         removeItem: function removeItem(index) {
             document.getElementById(index).submit();
+        },
+        orderColumns: function orderColumns(columnIndex) {
+            this.orderColmn = columnIndex;
+            if (this.orderItems == "asc") {
+                this.orderItems = "desc";
+            } else {
+                this.orderItems = "asc";
+            }
         }
     },
     computed: {
         listItems: function listItems() {
             var _this = this;
 
-            var order = this.orderitems.toLowerCase() || "asc";
-            var orderColmn = parseInt(this.orderColmn) || 0;
+            var order = this.orderItems;
+            var orderColmn = this.orderColmn;
             if (order == "asc") {
                 //order asc
                 this.tbodyitensparam.sort(function (a, b) {
@@ -48440,8 +48450,20 @@ var render = function() {
         _c(
           "tr",
           [
-            _vm._l(_vm.tableheaderparam, function(item) {
-              return _c("th", { key: item.id }, [_vm._v(_vm._s(item))])
+            _vm._l(_vm.tableheaderparam, function(item, index) {
+              return _c(
+                "th",
+                {
+                  key: item.id,
+                  staticStyle: { cursor: "pointer" },
+                  on: {
+                    click: function($event) {
+                      _vm.orderColumns(index)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(item))]
+              )
             }),
             _vm._v(" "),
             _vm.urldateilsparam || _vm.urleditparam || _vm.urlremoveparam

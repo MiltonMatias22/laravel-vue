@@ -12,7 +12,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th v-for="item in tableheaderparam" :key="item.id">{{item}}</th>
+                    <th style="cursor: pointer;" @click="orderColumns(index)" v-for="(item, index) in tableheaderparam" :key="item.id">{{item}}</th>
                     <th v-if="urldateilsparam || urleditparam || urlremoveparam">Action</th>
                 </tr>
             </thead>
@@ -50,22 +50,32 @@
             'urlremoveparam',
             'tokenparam',
             'orderitems',
-            'ordercolumn'            
+            'ordercolmn'           
         ],
         data: function (){
             return {
                 searchparam: '',
+                orderItems: this.orderitems.toLowerCase() || "asc",
+                orderColmn: parseInt(this.ordercolmn) || 0,
             }            
         },
         methods: {
             removeItem: function(index) {
                 document.getElementById(index).submit();
             },
+            orderColumns: function (columnIndex) {
+                this.orderColmn = columnIndex;
+                if (this.orderItems == "asc") {
+                    this.orderItems = "desc";
+                }else{
+                    this.orderItems = "asc";
+                }
+            },
         },
         computed: {
             listItems: function () {
-                let order = this.orderitems.toLowerCase() || "asc";
-                let orderColmn = parseInt(this.orderColmn) || 0;
+                let order = this.orderItems;
+                let orderColmn = this.orderColmn;
                 if (order == "asc") {
                     //order asc
                     this.tbodyitensparam.sort(
