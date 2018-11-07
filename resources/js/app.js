@@ -20,6 +20,7 @@ Vue.component('panel-component', require('./components/PanelComponent.vue'));
 Vue.component('box-component', require('./components/BoxComponent.vue'));
 Vue.component('page-component', require('./components/PageComponent.vue'));
 Vue.component('table-component', require('./components/TableComponent.vue'));
+Vue.component('breadcrumb-component', require('./components/BreadcrumbComponent.vue'));
 
 const app = new Vue({
     el: '#app'

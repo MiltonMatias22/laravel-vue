@@ -4,6 +4,7 @@
     <page-component collengthparam="10">
         <panel-component textheader="Dashboard">
             <div slot="panel-content">
+                <breadcrumb-component v-bind:breadcrumbparam="{{$breadcrumbParams}}"></breadcrumb-component>
                 <div class="row">
                     <div class="col-md-4">
                         <box-component 

@@ -3,7 +3,8 @@
 @section('content')
 <page-component collengthparam="12">
     <panel-component textheader="Articles">
-        <div slot="panel-content">            
+        <div slot="panel-content">
+        <breadcrumb-component v-bind:breadcrumbparam="{{$breadcrumbParams}}"></breadcrumb-component>           
             <table-component
                 v-bind:tableheaderparam="[
                     'Id',
