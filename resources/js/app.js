@@ -21,6 +21,8 @@ Vue.component('box-component', require('./components/BoxComponent.vue'));
 Vue.component('page-component', require('./components/PageComponent.vue'));
 Vue.component('table-component', require('./components/TableComponent.vue'));
 Vue.component('breadcrumb-component', require('./components/BreadcrumbComponent.vue'));
+Vue.component('modal-component', require('./components/modal/ModalComponent.vue'));
+Vue.component('modallink-component', require('./components/modal/ModalLinkComponent.vue'));
 
 const app = new Vue({
     el: '#app'

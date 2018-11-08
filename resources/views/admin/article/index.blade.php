@@ -18,7 +18,7 @@
                     [2,'VUE course','My VUE article','Article Author 2','0000/00/00'],
                     [3,'HTML course','My HTML article','Article Author 3','0000/00/00']
                 ]"
-                urlcreateparam="#new"
+                urlcreateparam=""
                 urldateilsparam="#dateils"
                 urleditparam="#edit"
                 urlremoveparam="#delete"
@@ -30,4 +30,15 @@
         </div>
     </panel-component>
 </page-component>
+
+<!--Modal type option: modal-sm, modal-lg. centeredparam: true-->
+<modal-component modalidparam="modalName" modaltypeparam="modal-lg" centeredparam="true">
+    <h3 slot="header" class="modal-title"><span class="ion ion-plus-round"></span></h3>
+    <div slot="body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, numquam.</p>
+    </div>
+    <div slot="footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>    
+</modal-component>
 @endsection

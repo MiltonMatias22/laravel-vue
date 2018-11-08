@@ -4,6 +4,14 @@
             <a v-if="urlcreateparam" v-bind:href="urlcreateparam" class="btn btn-success">
                 New <span class="ion ion-plus"></span>
             </a>
+            <!-- btn modal -->
+            <modallink-component
+                datatargetparam="modalName"
+                titleparam="New"
+                typeparam="button"
+                classparam="btn btn-success"
+                iconparam="ion ion-plus">
+            </modallink-component>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" v-model="searchparam"
                     placeholder="Search" aria-label="Search">
