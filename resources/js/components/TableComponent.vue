@@ -6,7 +6,7 @@
             </a>
             <!-- btn modal -->
             <modallink-component
-                datatargetparam="modalName"
+                datatargetparam="modaladd"
                 titleparam="New"
                 typeparam="button"
                 classparam="btn btn-success"
@@ -29,9 +29,27 @@
                     <td v-for="item in items" :key="item.id">{{item}}</td>
                     <td v-if="urldateilsparam || urleditparam || urlremoveparam">
                         <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam" method="post" class="form-inline">
-                            <a v-if="urldateilsparam" v-bind:href="urldateilsparam" class="btn btn-info btn-sm">Details</a> |
-                            <a v-if="urleditparam" v-bind:href="urleditparam" class="btn btn-warning btn-sm">Edit</a> |
-                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove</a>
+                                <a v-if="urldateilsparam && !modalactiveparam" v-bind:href="urldateilsparam"
+                                    class="btn btn-info btn-sm">Details <span class="ion ion-eye"></span></a>
+                                <modallink-component
+                                    v-if="modalactiveparam && urleditparam"
+                                    datatargetparam="modalDetails"
+                                    titleparam="Details"
+                                    typeparam="button"
+                                    classparam="btn btn-info btn-sm"
+                                    iconparam="ion ion-eye">
+                                </modallink-component> |                                
+                                <a v-if="urleditparam && !modalactiveparam" v-bind:href="urleditparam"
+                                    class="btn btn-warning btn-sm">Edit <span class="ion ion-edit"></span></a>
+                                <modallink-component
+                                    v-if="modalactiveparam && urleditparam"
+                                    datatargetparam="modalEdit"
+                                    titleparam="Edit"
+                                    typeparam="button"
+                                    classparam="btn btn-warning btn-sm"
+                                    iconparam="ion ion-edit">
+                                </modallink-component> |                            
+                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove <span class="ion ion-trash-a"></span></a>
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" v-bind:value="tokenparam">
                         </form>
@@ -58,7 +76,8 @@
             'urlremoveparam',
             'tokenparam',
             'orderitems',
-            'ordercolmn'           
+            'ordercolmn',
+            'modalactiveparam'           
         ],
         data: function (){
             return {
@@ -89,7 +108,7 @@
                     this.tbodyitensparam.sort(
                         function (a,b) {
                             if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return 1}
-                            if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return -1}
+                            if(Object.values(a)[orderColmn] < b[orderColmn]){return -1}
                             return 0;
                         }
                     );
@@ -97,8 +116,8 @@
                     //order desc
                     this.tbodyitensparam.sort(
                         function (a,b) {
-                            if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return 1}
-                            if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return -1}
+                            if(Object.values(a)[orderColmn] < b[orderColmn]){return 1}
+                            if(Object.values(a)[orderColmn] > b[orderColmn]){return -1}
                             return 0;
                         }
                     );

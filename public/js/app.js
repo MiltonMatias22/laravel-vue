@@ -48279,7 +48279,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48339,9 +48339,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam', 'orderitems', 'ordercolmn'],
+    props: ['tableheaderparam', 'tbodyitensparam', 'urlcreateparam', 'urldateilsparam', 'urleditparam', 'urlremoveparam', 'tokenparam', 'orderitems', 'ordercolmn', 'modalactiveparam'],
     data: function data() {
         return {
             searchparam: '',
@@ -48374,7 +48392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     if (Object.values(a)[orderColmn] > Object.values(b)[orderColmn]) {
                         return 1;
                     }
-                    if (Object.values(a)[orderColmn] < Object.values(b)[orderColmn]) {
+                    if (Object.values(a)[orderColmn] < b[orderColmn]) {
                         return -1;
                     }
                     return 0;
@@ -48382,10 +48400,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 //order desc
                 this.tbodyitensparam.sort(function (a, b) {
-                    if (Object.values(a)[orderColmn] < Object.values(b)[orderColmn]) {
+                    if (Object.values(a)[orderColmn] < b[orderColmn]) {
                         return 1;
                     }
-                    if (Object.values(a)[orderColmn] > Object.values(b)[orderColmn]) {
+                    if (Object.values(a)[orderColmn] > b[orderColmn]) {
                         return -1;
                     }
                     return 0;
@@ -48436,7 +48454,7 @@ var render = function() {
         _vm._v(" "),
         _c("modallink-component", {
           attrs: {
-            datatargetparam: "modalName",
+            datatargetparam: "modaladd",
             titleparam: "New",
             typeparam: "button",
             classparam: "btn btn-success",
@@ -48529,28 +48547,62 @@ var render = function() {
                             }
                           },
                           [
-                            _vm.urldateilsparam
+                            _vm.urldateilsparam && !_vm.modalactiveparam
                               ? _c(
                                   "a",
                                   {
                                     staticClass: "btn btn-info btn-sm",
                                     attrs: { href: _vm.urldateilsparam }
                                   },
-                                  [_vm._v("Details")]
+                                  [
+                                    _vm._v("Details "),
+                                    _c("span", { staticClass: "ion ion-eye" })
+                                  ]
                                 )
                               : _vm._e(),
-                            _vm._v(" |\n                        "),
-                            _vm.urleditparam
+                            _vm._v(" "),
+                            _vm.modalactiveparam && _vm.urleditparam
+                              ? _c("modallink-component", {
+                                  attrs: {
+                                    datatargetparam: "modalDetails",
+                                    titleparam: "Details",
+                                    typeparam: "button",
+                                    classparam: "btn btn-info btn-sm",
+                                    iconparam: "ion ion-eye"
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(
+                              " |                                \n                            "
+                            ),
+                            _vm.urleditparam && !_vm.modalactiveparam
                               ? _c(
                                   "a",
                                   {
                                     staticClass: "btn btn-warning btn-sm",
                                     attrs: { href: _vm.urleditparam }
                                   },
-                                  [_vm._v("Edit")]
+                                  [
+                                    _vm._v("Edit "),
+                                    _c("span", { staticClass: "ion ion-edit" })
+                                  ]
                                 )
                               : _vm._e(),
-                            _vm._v(" |\n                        "),
+                            _vm._v(" "),
+                            _vm.modalactiveparam && _vm.urleditparam
+                              ? _c("modallink-component", {
+                                  attrs: {
+                                    datatargetparam: "modalEdit",
+                                    titleparam: "Edit",
+                                    typeparam: "button",
+                                    classparam: "btn btn-warning btn-sm",
+                                    iconparam: "ion ion-edit"
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(
+                              " |                            \n                        "
+                            ),
                             _vm.urlremoveparam
                               ? _c(
                                   "a",
@@ -48563,7 +48615,12 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("Remove")]
+                                  [
+                                    _vm._v("Remove "),
+                                    _c("span", {
+                                      staticClass: "ion ion-trash-a"
+                                    })
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -48579,7 +48636,8 @@ var render = function() {
                               attrs: { type: "hidden", name: "_token" },
                               domProps: { value: _vm.tokenparam }
                             })
-                          ]
+                          ],
+                          1
                         )
                       : _c("div", [
                           _vm.urldateilsparam
