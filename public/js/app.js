@@ -48279,7 +48279,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48371,10 +48371,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (order == "asc") {
                 //order asc
                 this.tbodyitensparam.sort(function (a, b) {
-                    if (a[orderColmn] > b[orderColmn]) {
+                    if (Object.values(a)[orderColmn] > Object.values(b)[orderColmn]) {
                         return 1;
                     }
-                    if (a[orderColmn] < b[orderColmn]) {
+                    if (Object.values(a)[orderColmn] < Object.values(b)[orderColmn]) {
                         return -1;
                     }
                     return 0;
@@ -48382,23 +48382,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 //order desc
                 this.tbodyitensparam.sort(function (a, b) {
-                    if (a[orderColmn] < b[orderColmn]) {
+                    if (Object.values(a)[orderColmn] < Object.values(b)[orderColmn]) {
                         return 1;
                     }
-                    if (a[orderColmn] > b[orderColmn]) {
+                    if (Object.values(a)[orderColmn] > Object.values(b)[orderColmn]) {
                         return -1;
                     }
                     return 0;
                 });
             }
-            return this.tbodyitensparam.filter(function (res) {
-                for (var index = 0; index < res.length; index++) {
-                    if ((res[index] + "").toLowerCase().indexOf(_this.searchparam.toLowerCase()) >= 0) {
-                        return true;
+            if (this.searchparam) {
+                return this.tbodyitensparam.filter(function (res) {
+                    for (var index = 0; index < res.length; index++) {
+                        if ((res[index] + "").toLowerCase().indexOf(_this.searchparam.toLowerCase()) >= 0) {
+                            return true;
+                        }
                     }
-                }
-                return false;
-            });
+                    return false;
+                });
+            }
+
             return this.tbodyitensparam;
         }
     }

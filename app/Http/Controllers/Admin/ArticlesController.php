@@ -19,7 +19,12 @@ class ArticlesController extends Controller
             ["titleText" => "Home","url" => route("home")],
             ["titleText" => "Articles","url" => ""]
         ]);
-        return view('admin.article.index', compact('breadcrumbParams'));
+        $articles = json_encode([
+            ['id'=>1,'title'=>'PHP course','description'=>'My PHP article','author'=>'Article Author 1','date'=>'0000/00/00'],
+            ['id'=>2,'title'=>'VUE course','description'=>'My VUE article','author'=>'Article Author 2','date'=>'0000/00/00'],
+            ['id'=>3,'title'=>'HTML course','description'=>'My HTML article','author'=>'Article Author 3','date'=>'0000/00/00']
+        ]);
+        return view('admin.article.index', compact('breadcrumbParams','articles'));
     }
 
     /**
