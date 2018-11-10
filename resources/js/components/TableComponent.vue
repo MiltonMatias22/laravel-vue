@@ -110,7 +110,7 @@
                     this.tbodyitensparam.sort(
                         function (a,b) {
                             if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return 1}
-                            if(Object.values(a)[orderColmn] < b[orderColmn]){return -1}
+                            if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return -1}
                             return 0;
                         }
                     );
@@ -118,14 +118,15 @@
                     //order desc
                     this.tbodyitensparam.sort(
                         function (a,b) {
-                            if(Object.values(a)[orderColmn] < b[orderColmn]){return 1}
-                            if(Object.values(a)[orderColmn] > b[orderColmn]){return -1}
+                            if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return 1}
+                            if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return -1}
                             return 0;
                         }
                     );
                 }
                 if (this.searchparam) {
                     return this.tbodyitensparam.filter(res => {
+                        res = Object.values(res);
                         for (let index = 0; index < res.length; index++) {
                             if ((res[index] +"").toLowerCase().indexOf(this.searchparam.toLowerCase()) >= 0) {
                                 return true;

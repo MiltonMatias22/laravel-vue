@@ -35,9 +35,10 @@
         <form-component
             classparam=""
             actionparam="#"
-            methodparam="delete"
+            methodparam="post"
             enctypeparam=""
-            token="12345">
+            token="12345"
+            id="submit">
             <div slot="fields">
                 <div class="form-group">
                     <label for="title">Title:</label>
@@ -66,11 +67,11 @@
                         <input type="date" class="form-control" id="date">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form-component>
     </div>
     <div slot="footer">
+        <button type="submit" class="btn btn-primary" form="submit">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>    
 </modal-component>
@@ -96,7 +97,8 @@
             actionparam="#"
             methodparam="put"
             enctypeparam=""
-            token="12345">
+            token="12345"
+            id="update">
             <div slot="fields">
                 <input type="hidden" name="id" v-model="$store.state.item.id">
                 <div class="form-group">
@@ -126,11 +128,11 @@
                         <input type="date" class="form-control" id="date" v-model="$store.state.item.date">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form-component>
     </div>
     <div slot="footer">
+        <button type="submit" class="btn btn-primary" form="update">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>    
 </modal-component>
