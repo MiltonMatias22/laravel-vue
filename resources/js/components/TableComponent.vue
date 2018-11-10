@@ -37,7 +37,8 @@
                                     titleparam="Details"
                                     typeparam="button"
                                     classparam="btn btn-info btn-sm"
-                                    iconparam="ion ion-eye">
+                                    iconparam="ion ion-eye"
+                                    v-bind:items="items">
                                 </modallink-component> |                                
                                 <a v-if="urleditparam && !modalactiveparam" v-bind:href="urleditparam"
                                     class="btn btn-warning btn-sm">Edit <span class="ion ion-edit"></span></a>
@@ -47,7 +48,8 @@
                                     titleparam="Edit"
                                     typeparam="button"
                                     classparam="btn btn-warning btn-sm"
-                                    iconparam="ion ion-edit">
+                                    iconparam="ion ion-edit"
+                                    v-bind:items="items">
                                 </modallink-component> |                            
                             <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove <span class="ion ion-trash-a"></span></a>
                             <input type="hidden" name="_method" value="DELETE">

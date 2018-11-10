@@ -31,14 +31,14 @@
             }
         },
         computed: {
-            verifyModalType: function () {        
+            verifyModalType: function () {                
+                if (this.b == "true") {
+                    this.b = " modal-dialog-centered";
+                }
                 if (this.a == "modal-sm" || this.a == "modal-lg") {
-                    if (this.b == "true") {
-                        this.b = " modal-dialog-centered";
-                    }
                     return this.a + this.b;
                 }else{
-                    return "";
+                    return ""+this.b;
                 }
             },
         },

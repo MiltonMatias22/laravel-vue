@@ -47627,8 +47627,14 @@ window.Vue = __webpack_require__(14);
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
-    state: {},
-    mutations: {}
+    state: {
+        item: {}
+    },
+    mutations: {
+        SET_ITEM: function SET_ITEM(state, obj) {
+            state.item = obj;
+        }
+    }
 }));
 
 /***/ }),
@@ -49248,7 +49254,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49259,6 +49265,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -49537,7 +49545,8 @@ var render = function() {
                                     titleparam: "Details",
                                     typeparam: "button",
                                     classparam: "btn btn-info btn-sm",
-                                    iconparam: "ion ion-eye"
+                                    iconparam: "ion ion-eye",
+                                    items: items
                                   }
                                 })
                               : _vm._e(),
@@ -49565,7 +49574,8 @@ var render = function() {
                                     titleparam: "Edit",
                                     typeparam: "button",
                                     classparam: "btn btn-warning btn-sm",
-                                    iconparam: "ion ion-edit"
+                                    iconparam: "ion ion-edit",
+                                    items: items
                                   }
                                 })
                               : _vm._e(),
@@ -49960,13 +49970,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         verifyModalType: function verifyModalType() {
+            if (this.b == "true") {
+                this.b = " modal-dialog-centered";
+            }
             if (this.a == "modal-sm" || this.a == "modal-lg") {
-                if (this.b == "true") {
-                    this.b = " modal-dialog-centered";
-                }
                 return this.a + this.b;
             } else {
-                return "";
+                return "" + this.b;
             }
         }
     }
@@ -50115,9 +50125,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['datatargetparam', 'titleparam', 'typeparam', 'classparam', 'iconparam']
+    props: ['datatargetparam', 'titleparam', 'typeparam', 'classparam', 'iconparam', 'items'],
+    methods: {
+        formFillUpdate: function formFillUpdate() {
+            this.$store.commit("SET_ITEM", this.items);
+        }
+    }
 });
 
 /***/ }),
@@ -50129,50 +50162,113 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.typeparam == "button"
-      ? _c(
-          "button",
-          {
-            class: _vm.classparam || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.datatargetparam
-            }
-          },
-          [
-            _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
-            _c("span", { class: _vm.iconparam })
-          ]
-        )
-      : _vm.typeparam == "link"
-        ? _c(
-            "a",
-            {
-              staticClass: "btn-link",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#" + _vm.datatargetparam,
-                href: "#"
-              }
-            },
-            [_vm._v("\n    " + _vm._s(_vm.titleparam) + "\n    ")]
-          )
-        : _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#" + _vm.datatargetparam
-              }
-            },
-            [
-              _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
-              _c("span", { class: _vm.iconparam })
-            ]
-          )
+    _vm.items
+      ? _c("span", [
+          _vm.typeparam == "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.classparam || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.datatargetparam
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.formFillUpdate()
+                    }
+                  }
+                },
+                [
+                  _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
+                  _c("span", { class: _vm.iconparam })
+                ]
+              )
+            : _vm.typeparam == "link"
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "btn-link",
+                    attrs: {
+                      "data-toggle": "modal",
+                      "data-target": "#" + _vm.datatargetparam,
+                      href: "#"
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.formFillUpdate()
+                      }
+                    }
+                  },
+                  [_vm._v("\n    " + _vm._s(_vm.titleparam) + "\n    ")]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "modal",
+                      "data-target": "#" + _vm.datatargetparam
+                    }
+                  },
+                  [
+                    _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
+                    _c("span", { class: _vm.iconparam })
+                  ]
+                )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.items
+      ? _c("span", [
+          _vm.typeparam == "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.classparam || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.datatargetparam
+                  }
+                },
+                [
+                  _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
+                  _c("span", { class: _vm.iconparam })
+                ]
+              )
+            : _vm.typeparam == "link"
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "btn-link",
+                    attrs: {
+                      "data-toggle": "modal",
+                      "data-target": "#" + _vm.datatargetparam,
+                      href: "#"
+                    }
+                  },
+                  [_vm._v("\n    " + _vm._s(_vm.titleparam) + "\n    ")]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "modal",
+                      "data-target": "#" + _vm.datatargetparam
+                    }
+                  },
+                  [
+                    _vm._v("\n        " + _vm._s(_vm.titleparam) + " "),
+                    _c("span", { class: _vm.iconparam })
+                  ]
+                )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
