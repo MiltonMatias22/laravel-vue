@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         <navtop-component titulo="{{ config('app.name', 'Laravel') }}" url="{{ url('/') }}">
             <!-- Authentication Links -->
             <div slot="menu-nav-content">
