@@ -2,6 +2,19 @@
 
 @section('content')
 <page-component collengthparam="12">
+    @if ($errors->all())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <p>Please, fill the fields <strong>correctly</strong>!</p>
+            <ul>
+                @foreach ($errors->all() as $key => $value)
+                    <li>{{$value}}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <panel-component textheader="Articles">
         <div slot="panel-content">
         <breadcrumb-component v-bind:breadcrumbparam="{{$breadcrumbParams}}"></breadcrumb-component>
@@ -42,13 +55,13 @@
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" class="form-control"
-                        placeholder="Title" aria-describedby="helpId">
+                        placeholder="Title" aria-describedby="helpId" value="{{old('title')}}">
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <input type="text" name="description" id="description" class="form-control"
-                        placeholder="Description" aria-describedby="helpId">
+                        placeholder="Description" aria-describedby="helpId" value="{{old('description')}}">
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-row">
@@ -63,12 +76,12 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="date">Date:</label>
-                        <input type="datetime-local" class="form-control" name="date" id="date">
+                        <input type="datetime-local" class="form-control" name="date" id="date" value="{{old('date')}}">
                     </div>
                 </div>
                 <div class="form-group">
                   <label for="content">Content:</label>
-                  <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                  <textarea class="form-control" name="content" id="content" rows="3">{{old('content')}}</textarea>
                 </div>
             </div>
         </form-component>
