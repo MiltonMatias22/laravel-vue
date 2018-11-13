@@ -35,10 +35,12 @@
 
 <script>
     export default {
-        props: ['datatargetparam','titleparam','typeparam','classparam','iconparam','items'],
+        props: ['datatargetparam','titleparam','typeparam','classparam','iconparam','items','url'],
         methods: {
             formFillUpdate: function () {
-                this.$store.commit("SET_ITEM", this.items);
+                axios.get(this.url + this.items.id).then(res => {
+                    this.$store.commit("SET_ITEM", res.data);
+                });
             },
         },
     }

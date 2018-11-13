@@ -27,7 +27,7 @@
                 ]"
                 v-bind:tbodyitensparam="{{$articles}}"
                 urlcreateparam=""
-                urldateilsparam="#details"
+                urldateilsparam="/admin/articles/"
                 urleditparam="#edit"
                 urlremoveparam="#delete"
                 tokenparam="788095004"
@@ -95,9 +95,9 @@
     <h3 slot="header" class="modal-title">@{{$store.state.item.title}}</h3>
     <div slot="body">
         <ul class="list-unstyled">
-            <li><strong>Autor: </strong>@{{$store.state.item.author}}</li>
-            <li><strong>Date: </strong>@{{$store.state.item.date}}</li>
             <li><strong>Description: </strong>@{{$store.state.item.description}}</li>
+            <li><strong>Date: </strong>@{{$store.state.item.date}}</li>
+            <li><strong>Content: </strong>@{{$store.state.item.content}}</li>
         </ul>
         <h6>Others Details</h6>
     </div>

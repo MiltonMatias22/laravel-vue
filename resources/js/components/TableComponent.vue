@@ -38,7 +38,8 @@
                                     typeparam="button"
                                     classparam="btn btn-info btn-sm"
                                     iconparam="ion ion-eye"
-                                    v-bind:items="items">
+                                    v-bind:items="items"
+                                    v-bind:url="urldateilsparam">
                                 </modallink-component> |                                
                                 <a v-if="urleditparam && !modalactiveparam" v-bind:href="urleditparam"
                                     class="btn btn-warning btn-sm">Edit <span class="ion ion-edit"></span></a>
