@@ -105,11 +105,12 @@
         },
         computed: {
             listItems: function () {
+                let c = this.tbodyitensparam.data;
                 let order = this.orderItems;
                 let orderColmn = this.orderColmn;
                 if (order == "asc") {
                     //order asc
-                    this.tbodyitensparam.sort(
+                    c.sort(
                         function (a,b) {
                             if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return 1}
                             if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return -1}
@@ -118,7 +119,7 @@
                     );
                 }else{
                     //order desc
-                    this.tbodyitensparam.sort(
+                    c.sort(
                         function (a,b) {
                             if(Object.values(a)[orderColmn] < Object.values(b)[orderColmn]){return 1}
                             if(Object.values(a)[orderColmn] > Object.values(b)[orderColmn]){return -1}
@@ -127,7 +128,7 @@
                     );
                 }
                 if (this.searchparam) {
-                    return this.tbodyitensparam.filter(res => {
+                    return c.filter(res => {
                         res = Object.values(res);
                         for (let index = 0; index < res.length; index++) {
                             if ((res[index] +"").toLowerCase().indexOf(this.searchparam.toLowerCase()) >= 0) {
@@ -137,7 +138,7 @@
                         return false;
                     });
                 }
-                return this.tbodyitensparam;
+                return c;
             }
         },
     }

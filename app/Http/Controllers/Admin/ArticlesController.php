@@ -21,7 +21,7 @@ class ArticlesController extends Controller
             ["titleText" => "Articles","url" => ""]
         ]);
         
-        $articles = json_encode(Article::select('id','title','description','date')->get());
+        $articles = Article::select('id','title','description','date')->paginate(10);
         
         return view('admin.article.index', compact('breadcrumbParams','articles'));
     }

@@ -49254,7 +49254,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49363,11 +49363,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         listItems: function listItems() {
             var _this = this;
 
+            var c = this.tbodyitensparam.data;
             var order = this.orderItems;
             var orderColmn = this.orderColmn;
             if (order == "asc") {
                 //order asc
-                this.tbodyitensparam.sort(function (a, b) {
+                c.sort(function (a, b) {
                     if (Object.values(a)[orderColmn] > Object.values(b)[orderColmn]) {
                         return 1;
                     }
@@ -49378,7 +49379,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             } else {
                 //order desc
-                this.tbodyitensparam.sort(function (a, b) {
+                c.sort(function (a, b) {
                     if (Object.values(a)[orderColmn] < Object.values(b)[orderColmn]) {
                         return 1;
                     }
@@ -49389,7 +49390,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
             if (this.searchparam) {
-                return this.tbodyitensparam.filter(function (res) {
+                return c.filter(function (res) {
                     res = Object.values(res);
                     for (var index = 0; index < res.length; index++) {
                         if ((res[index] + "").toLowerCase().indexOf(_this.searchparam.toLowerCase()) >= 0) {
@@ -49399,7 +49400,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return false;
                 });
             }
-            return this.tbodyitensparam;
+            return c;
         }
     }
 });

@@ -25,7 +25,7 @@
                     'Description',
                     'Date',
                 ]"
-                v-bind:tbodyitensparam="{{$articles}}"
+                v-bind:tbodyitensparam="{{json_encode($articles)}}"
                 urlcreateparam=""
                 urldateilsparam="/admin/articles/"
                 urleditparam="/admin/articles/"
@@ -36,6 +36,8 @@
                 modalactiveparam="true"
                 >
             </table-component>
+            <!--* to pagination -->
+            {{$articles}}
         </div>
     </panel-component>
 </page-component>
