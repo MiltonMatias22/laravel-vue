@@ -49397,7 +49397,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return false;
                 });
             }
-
+            console.log(this.tbodyitensparam);
             return this.tbodyitensparam;
         }
     }
@@ -49508,7 +49508,7 @@ var render = function() {
             { key: items.id },
             [
               _vm._l(items, function(item) {
-                return _c("td", { key: item.id }, [_vm._v(_vm._s(item))])
+                return _c("td", [_vm._v(_vm._s(item))])
               }),
               _vm._v(" "),
               _vm.urldateilsparam || _vm.urleditparam || _vm.urlremoveparam

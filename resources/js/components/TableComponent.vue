@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 <tr v-for="(items, index) in listItems" :key="items.id">
-                    <td v-for="item in items" :key="item.id">{{item}}</td>
+                    <td v-for="item in items" >{{item}}</td>
                     <td v-if="urldateilsparam || urleditparam || urlremoveparam">
                         <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam" method="post" class="form-inline">
                                 <a v-if="urldateilsparam && !modalactiveparam" v-bind:href="urldateilsparam"
@@ -135,7 +135,7 @@
                         return false;
                     });
                 }
-                
+                console.log(this.tbodyitensparam);
                 return this.tbodyitensparam;
             }
         },

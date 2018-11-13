@@ -10,7 +10,6 @@
                     'Id',
                     'Title',
                     'Description',
-                    'Author',
                     'Date',
                 ]"
                 v-bind:tbodyitensparam="{{$articles}}"
@@ -34,10 +33,10 @@
     <div slot="body">
         <form-component
             classparam=""
-            actionparam="#"
+            actionparam="{{ route('articles.store') }}"
             methodparam="post"
             enctypeparam=""
-            token="12345"
+            token="{{ csrf_token() }}"
             id="submit">
             <div slot="fields">
                 <div class="form-group">
@@ -53,7 +52,7 @@
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-9">
+                    <div class="form-group col-md-8">
                         <label for="author">Author:</label>
                         <select id="author" class="form-control">
                             <option selected>Choose Author...</option>
@@ -62,10 +61,14 @@
                             <option>Author name 3</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="date">Date:</label>
-                        <input type="date" class="form-control" id="date">
+                        <input type="datetime-local" class="form-control" name="date" id="date">
                     </div>
+                </div>
+                <div class="form-group">
+                  <label for="content">Content:</label>
+                  <textarea class="form-control" name="content" id="content" rows="3"></textarea>
                 </div>
             </div>
         </form-component>
