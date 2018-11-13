@@ -12,4 +12,10 @@ class Article extends Model
     protected $fillable = ['title','description','content','date'];
 
     protected $dates = ['deleted_at'];
+
+    public function getDateAttribute($value)
+    {
+        $date = str_replace(' ', 'T', $value);
+        return $date;
+    }
 }

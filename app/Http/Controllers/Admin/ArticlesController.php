@@ -93,7 +93,22 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        
+        $validator = \Validator::make($request->all(),[
+            'title' => 'required|min:3|max:255',
+            'description' => 'required|min:3|max:255',
+            'content' => 'required|min:3',
+            'date' => 'required|date'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        Article::find($id)->update($data);
+
+        return redirect()->back();
     }
 
     /**

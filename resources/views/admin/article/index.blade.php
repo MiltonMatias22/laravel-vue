@@ -28,7 +28,7 @@
                 v-bind:tbodyitensparam="{{$articles}}"
                 urlcreateparam=""
                 urldateilsparam="/admin/articles/"
-                urleditparam="#edit"
+                urleditparam="/admin/articles/"
                 urlremoveparam="#delete"
                 tokenparam="788095004"
                 orderitems="asc"
@@ -110,13 +110,12 @@
     <div slot="body">
         <form-component
             classparam=""
-            actionparam="#"
+            :actionparam="'/admin/articles/'+$store.state.item.id"
             methodparam="put"
             enctypeparam=""
-            token="12345"
+            token="{{ csrf_token() }}"
             id="update">
             <div slot="fields">
-                <input type="hidden" name="id" v-model="$store.state.item.id">
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" class="form-control"
@@ -130,7 +129,7 @@
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-9">
+                    <div class="form-group col-md-8">
                         <label for="author">Author:</label>
                         <select id="author" class="form-control">
                             <option selected>Choose Author...</option>
@@ -139,11 +138,18 @@
                             <option>Author name 3</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="date">Date:</label>
-                        <input type="date" class="form-control" id="date" v-model="$store.state.item.date">
+                        <input type="datetime-local" class="form-control" id="date" name="date"
+                            v-model="$store.state.item.date">
                     </div>
-                </div>
+                </div>                
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea class="form-control" name="content" id="content" rows="3"
+                        v-model="$store.state.item.content">
+                    </textarea>
+                  </div>
             </div>
         </form-component>
     </div>

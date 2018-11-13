@@ -50,7 +50,8 @@
                                     typeparam="button"
                                     classparam="btn btn-warning btn-sm"
                                     iconparam="ion ion-edit"
-                                    v-bind:items="items">
+                                    v-bind:items="items"
+                                    v-bind:url="urleditparam">
                                 </modallink-component> |                            
                             <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove <span class="ion ion-trash-a"></span></a>
                             <input type="hidden" name="_method" value="DELETE">
