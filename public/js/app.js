@@ -49254,7 +49254,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49399,7 +49399,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return false;
                 });
             }
-            console.log(this.tbodyitensparam);
             return this.tbodyitensparam;
         }
     }
@@ -49522,7 +49521,7 @@ var render = function() {
                             staticClass: "form-inline",
                             attrs: {
                               id: index,
-                              action: _vm.urlremoveparam,
+                              action: _vm.urlremoveparam + items.id,
                               method: "post"
                             }
                           },
@@ -49592,7 +49591,6 @@ var render = function() {
                                   "a",
                                   {
                                     staticClass: "btn btn-danger btn-sm",
-                                    attrs: { href: _vm.urlremoveparam },
                                     on: {
                                       click: function($event) {
                                         _vm.removeItem(index)

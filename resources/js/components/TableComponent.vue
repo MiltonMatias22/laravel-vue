@@ -28,7 +28,7 @@
                 <tr v-for="(items, index) in listItems" :key="items.id">
                     <td v-for="item in items" >{{item}}</td>
                     <td v-if="urldateilsparam || urleditparam || urlremoveparam">
-                        <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam" method="post" class="form-inline">
+                        <form v-bind:id="index" v-if="tokenparam" v-bind:action="urlremoveparam + items.id" method="post" class="form-inline">
                                 <a v-if="urldateilsparam && !modalactiveparam" v-bind:href="urldateilsparam"
                                     class="btn btn-info btn-sm">Details <span class="ion ion-eye"></span></a>
                                 <modallink-component
@@ -53,7 +53,7 @@
                                     v-bind:items="items"
                                     v-bind:url="urleditparam">
                                 </modallink-component> |                            
-                            <a v-if="urlremoveparam" v-bind:href="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove <span class="ion ion-trash-a"></span></a>
+                            <a v-if="urlremoveparam" @click="removeItem(index)" class="btn btn-danger btn-sm">Remove <span class="ion ion-trash-a"></span></a>
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" v-bind:value="tokenparam">
                         </form>
@@ -137,7 +137,6 @@
                         return false;
                     });
                 }
-                console.log(this.tbodyitensparam);
                 return this.tbodyitensparam;
             }
         },
