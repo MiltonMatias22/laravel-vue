@@ -21,7 +21,7 @@
                             iconclassparam="ion ion-person-stalker"
                             numtext="53%"
                             bodytext="Users"
-                            url="http://store.com/bounce-rate/info">
+                            url="{{route("users.index")}}">
                         </box-component>
                     </div>
                     <div class="col-md-4">
