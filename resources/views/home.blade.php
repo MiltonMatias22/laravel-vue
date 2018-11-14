@@ -30,7 +30,7 @@
                             iconclassparam="ion ion-person"
                             numtext="50"
                             bodytext="Author"
-                            url="http://store.com/user/info">
+                            url="{{route("authors.index")}}">
                         </box-component>
                     </div>
                 </div>
