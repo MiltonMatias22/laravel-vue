@@ -23,6 +23,7 @@
                     'Id',
                     'Title',
                     'Description',
+                    'Author',
                     'Date',
                 ]"
                 v-bind:tbodyitensparam="{{json_encode($articles)}}"

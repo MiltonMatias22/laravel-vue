@@ -21,7 +21,7 @@ class ArticlesController extends Controller
             ["titleText" => "Articles","url" => ""]
         ]);
         
-        $articles = Article::select('id','title','description','date')->paginate(10);
+        $articles = Article::getAll(5);
         
         return view('admin.article.index', compact('breadcrumbParams','articles'));
     }
