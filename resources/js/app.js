@@ -26,6 +26,7 @@ Vue.component('breadcrumb-component', require('./components/BreadcrumbComponent.
 Vue.component('modal-component', require('./components/modal/ModalComponent.vue'));
 Vue.component('modallink-component', require('./components/modal/ModalLinkComponent.vue'));
 Vue.component('form-component', require('./components/FormComponent.vue'));
+Vue.component('ckeditor-component', require('./components/util/VueCkeditor.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -59,7 +59,8 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>    
+    </div>
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
 </body>
 </html>
 

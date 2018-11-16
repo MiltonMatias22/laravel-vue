@@ -32,8 +32,8 @@
                 urleditparam="/admin/articles/"
                 urlremoveparam="/admin/articles/"
                 tokenparam="{{csrf_token()}}"
-                orderitems="asc"
-                ordercolumn="1"
+                orderitems="desc"
+                ordercolumn="0"
                 modalactiveparam="true"
                 >
             </table-component>
@@ -83,8 +83,19 @@
                     </div>
                 </div>
                 <div class="form-group">
-                  <label for="content">Content:</label>
-                  <textarea class="form-control" name="content" id="content" rows="3">{{old('content')}}</textarea>
+                    <label for="content">Content:</label>
+                    <ckeditor-component
+                        id="content"
+                        name="content"
+                        value="{{old('content')}}" 
+                        :config="{
+                            toolbar: [
+                              [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript' ]
+                            ],
+                            height: 100
+                          }">
+
+                    </ckeditor-component>
                 </div>
             </div>
         </form-component>
@@ -100,9 +111,17 @@
         <ul class="list-unstyled">
             <li><strong>Description: </strong>@{{$store.state.item.description}}</li>
             <li><strong>Date: </strong>@{{$store.state.item.date}}</li>
-            <li><strong>Content: </strong>@{{$store.state.item.content}}</li>
         </ul>
-        <h6>Others Details</h6>
+        <label for="edit-content">Content:</label>
+        <ckeditor-component
+            v-model="$store.state.item.content"
+            :config="{
+                toolbar: [
+                    [ '' ]
+                ],
+                height: 100
+                }">
+        </ckeditor-component>
     </div>
     <div slot="footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -148,10 +167,19 @@
                     </div>
                 </div>                
                 <div class="form-group">
-                    <label for="content">Content:</label>
-                    <textarea class="form-control" name="content" id="content" rows="3"
-                        v-model="$store.state.item.content">
-                    </textarea>
+                    <label for="edit-content">Content:</label>
+                    <ckeditor-component
+                        id="edit-content"
+                        name="content"
+                        value="{{old('content')}}"
+                        v-model="$store.state.item.content"
+                        :config="{
+                            toolbar: [
+                              [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript' ]
+                            ],
+                            height: 100
+                          }">
+                    </ckeditor-component>
                   </div>
             </div>
         </form-component>
