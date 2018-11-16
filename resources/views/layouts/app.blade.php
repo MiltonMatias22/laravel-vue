@@ -26,26 +26,26 @@
             <div slot="menu-nav-content">
                 @guest
                     <li class="nav-item dropdown mr-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o fa-2x mr-2" aria-hidden="true"></i></a>
                         <div class="dropdown-menu mr-5" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> {{ __('Login') }}</a>
                             @if (Route::has('register'))
-                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-lock" aria-hidden="true"></i> {{ __('Register') }}</a>
                             @endif
                         </div>
                     </li>
                 @else
                     <li class="nav-item dropdown mr-5">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }} <i class="fa fa-user-circle-o fa-2x ml-2 mr-2{{ Auth::user()->id ? ' text-success' : '' }}" aria-hidden="true"></i><span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin') }}">Admin</a>
+                            <a class="dropdown-item" href="{{ route('admin') }}"><i class="fa fa-user" aria-hidden="true"></i> Admin</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
                             </a>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
