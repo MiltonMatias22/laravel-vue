@@ -19,7 +19,7 @@ class UsersController extends Controller
     {
         // defining breadcrumb params
         $breadcrumbParams = json_encode([
-            ["titleText" => "Home","url" => route("home")],
+            ["titleText" => "Admin","url" => route("admin")],
             ["titleText" => "Users","url" => ""]
         ]);
         

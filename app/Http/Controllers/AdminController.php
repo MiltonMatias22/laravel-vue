@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,8 +25,8 @@ class HomeController extends Controller
     {
         // defining breadcrumb params
         $breadcrumbParams = json_encode([
-            ["titleText" => "Home","url" => ""]
+            ["titleText" => "Admin","url" => ""]
         ]);
-        return view('home', compact('breadcrumbParams'));
+        return view('admin', compact('breadcrumbParams'));
     }
 }
