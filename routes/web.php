@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = Article::getAllByDate(12);
+    return view('welcome', compact('articles'));
 });
 
 Auth::routes();

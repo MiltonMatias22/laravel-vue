@@ -17,8 +17,8 @@ class Article extends Model
 
     public function getDateAttribute($value)
     {
-        $date = str_replace(' ', 'T', $value);
-        return $date;
+        
+        return str_replace(' ', 'T', $value);;
     }
 
     public function getUser()
@@ -54,6 +54,21 @@ class Article extends Model
     public static function getAll($num)
     {
         return self::select('id','title','description','user_id','date')->paginate($num);
+    }
+
+    /**
+     * select article order by desc date
+     * 
+     * @param $num : paginate number
+     * 
+     * @return articles collection
+     */
+    public static function getAllByDate($num)
+    {
+        return self::select('id','title','description','user_id','date')
+        ->whereDate('date','<=', date('Y-m-d'))
+        ->orderBy('date','desc')
+        ->paginate($num);
     }
 
 }
