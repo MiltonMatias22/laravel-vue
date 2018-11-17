@@ -41,7 +41,11 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin') }}"><i class="fa fa-user" aria-hidden="true"></i> Admin</a>
+                            @can('isAuthor')
+                                <a class="dropdown-item" href="{{ route('admin') }}">
+                                    <i class="fa fa-user" aria-hidden="true"></i> Admin
+                                </a>
+                            @endcan
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

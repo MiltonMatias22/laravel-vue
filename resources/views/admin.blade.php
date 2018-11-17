@@ -6,20 +6,23 @@
             <div slot="panel-content">
                 <breadcrumb-component v-bind:breadcrumbparam="{{$breadcrumbParams}}"></breadcrumb-component>
                 <div class="row">
+                    @can('isAuthor', Model::class)                                    
                     <div class="col-md-4">
                         <box-component 
                             boxclassparam="bg-info"
                             iconclassparam="ion ion-pie-graph"
-                            numtext="200"
+                            numtext="{{$articles}}"
                             bodytext="Articles"
                             url="{{route("articles.index")}}">
                         </box-component>
                     </div>
+                    @endcan
+                    @can('isAdmin', Model::class)                                    
                     <div class="col-md-4">
                         <box-component
                             boxclassparam="bg-success"
                             iconclassparam="ion ion-person-stalker"
-                            numtext="53%"
+                            numtext="{{$users}}"
                             bodytext="Users"
                             url="{{route("users.index")}}">
                         </box-component>
@@ -28,11 +31,21 @@
                         <box-component 
                             boxclassparam="bg-dark"
                             iconclassparam="ion ion-person"
-                            numtext="50"
+                            numtext="{{$authors}}"
                             bodytext="Author"
                             url="{{route("authors.index")}}">
                         </box-component>
                     </div>
+                    <div class="col-md-4">
+                        <box-component 
+                            boxclassparam="bg-primary"
+                            iconclassparam="ion ion-person"
+                            numtext="{{$admins}}"
+                            bodytext="Admin"
+                            url="{{route("admins.index")}}">
+                        </box-component>
+                    </div>
+                    @endcan
                 </div>
             </div>
         </panel-component>

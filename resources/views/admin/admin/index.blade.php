@@ -15,7 +15,7 @@
             </button>
         </div>
     @endif
-    <panel-component textheader="Users">
+    <panel-component textheader="Admins">
         <div slot="panel-content">
         <breadcrumb-component v-bind:breadcrumbparam="{{$breadcrumbParams}}"></breadcrumb-component>
             <table-component
@@ -26,9 +26,9 @@
                 ]"
                 v-bind:tbodyitensparam="{{json_encode($modelList)}}"
                 urlcreateparam=""
-                urldateilsparam="/admin/users/"
-                urleditparam="/admin/users/"
-                urlremoveparam="/admin/users/"
+                urldateilsparam="/admin/admins/"
+                urleditparam="/admin/admins/"
+                urlremoveparam="/admin/admins/"
                 tokenparam="{{csrf_token()}}"
                 orderitems="asc"
                 ordercolumn="1"
@@ -47,7 +47,7 @@
     <div slot="body">
         <form-component
             classparam=""
-            actionparam="{{ route('users.store') }}"
+            actionparam="{{ route('admins.store') }}"
             methodparam="post"
             enctypeparam=""
             token="{{ csrf_token() }}"
@@ -66,24 +66,11 @@
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                            placeholder="Password" value="{{old('password')}}">
-                    </div>
-                </div>
-                
-                <div class="form-row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="author">Author ?</label>
-                            <select class="form-control" id="author" name="author">
-                                <option selected>Choose...</option>
-                                <option {{(old('author') && old('author') == 'T' ? 'selected' : '')}} 
-                                    value="T">YES</option>
-                                <option {{(old('author') && old('author') == 'F' ? 'selected' : '')}} 
-                                    value="F">NO</option>
-                            </select>
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Password" value="{{old('password')}}">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -91,10 +78,9 @@
                             <label for="admin">Admin ?</label>
                             <select class="form-control" id="admin" name="admin">
                                 <option selected>Choose...</option>
-                                <option {{(old('admin') && old('admin') == 'T' ? 'selected' : '')}} 
-                                    value="T">YES</option>
-                                <option {{(old('admin') && old('admin') == 'F' ? 'selected' : '')}} 
-                                    value="F">NO</option>
+                                <option {{(old('admin') && old('admin') == 'T' ? 'selected' : '')}}
+                                    {{!old('admin') ? 'selected' : ''}} value="T">YES</option>
+                                <option {{(old('admin') && old('admin') == 'F' ? 'selected' : '')}} value="F">NO</option>
                             </select>
                         </div>
                     </div>
@@ -124,7 +110,7 @@
     <div slot="body">
         <form-component
             classparam=""
-            :actionparam="'/admin/users/'+$store.state.item.id"
+            :actionparam="'/admin/admins/'+$store.state.item.id"
             methodparam="put"
             enctypeparam=""
             token="{{ csrf_token() }}"
@@ -143,25 +129,13 @@
                     <small id="helpId" class="text-muted"></small>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="edit-password">Password:</label>
-                        <input type="password" class="form-control" id="edit-password" name="password">
-                    </div>
-                </div>
-
-                <div class="form-row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="edit-author">Author ?</label>
-                            <select class="form-control" id="edit-author"
-                                name="author" v-model="$store.state.item.author">
-                                <option selected>Choose...</option>
-                                <option value="T">YES</option>
-                                <option value="F">NO</option>
-                            </select>
+                            <label for="edit-password">Password:</label>
+                            <input type="password" class="form-control" id="edit-password" name="password">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4">         
                         <div class="form-group">
                             <label for="edit-admin">Admin ?</label>
                             <select class="form-control" id="edit-admin"

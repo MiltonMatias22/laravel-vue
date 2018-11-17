@@ -5,7 +5,7 @@
         <div class="row">
             @foreach ($articles as $item)
                 <card-article-component
-                titleparam="{{$item->title}}"
+                titleparam="{{str_limit($item->title, 30)}}"
                 imgparam="https://imgplaceholder.com/640x360"
                 altparam="Card image cap"
                 authorparam="{{$item->user_id}}"
@@ -13,8 +13,8 @@
                 colsm="6"
                 colmd="4">
                     <p slot="card-text" class="card-text">
-                        {{$item->description}}
-                    <a href="{{route('article', [$item->id, str_slug($item->title)])}}">More...</a>
+                        {{str_limit($item->description, 40)}}
+                    <a href="{{route('article', [$item->id, str_slug($item->title)])}}">, More</a>
                     </p>
                 </card-article-component>
             @endforeach

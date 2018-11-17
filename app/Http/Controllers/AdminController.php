@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Article;
+use App\User;
 class AdminController extends Controller
 {
     /**
@@ -27,6 +28,16 @@ class AdminController extends Controller
         $breadcrumbParams = json_encode([
             ["titleText" => "Admin","url" => ""]
         ]);
-        return view('admin', compact('breadcrumbParams'));
+        $users = User::count();
+        $articles = Article::count();
+        $authors = User::where('author','=','T')->count();
+        $admins = User::where('admin','=','T')->count();
+        return view('admin', compact(
+            'breadcrumbParams',
+            'users',
+            'articles',
+            'authors',
+            'admins'
+        ));
     }
 }
