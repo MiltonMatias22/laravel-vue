@@ -50832,7 +50832,7 @@ var render = function() {
     "div",
     { class: "col-sm-" + (_vm.colsm || "6") + " col-md-" + (_vm.colmd || "4") },
     [
-      _c("div", { staticClass: "card mb-3" }, [
+      _c("div", { staticClass: "card mb-3 text-secondary" }, [
         _c("img", {
           staticClass: "card-img-top",
           attrs: { src: _vm.imgparam, alt: _vm.altparam }

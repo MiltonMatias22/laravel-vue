@@ -1,6 +1,6 @@
 <template>
     <div v-bind:class="'col-sm-'+(colsm || '6')+' col-md-'+(colmd || '4')">
-        <div class="card mb-3">
+        <div class="card mb-3 text-secondary">
             <img class="card-img-top" v-bind:src="imgparam" v-bind:alt="altparam">
             <div class="card-body">
                 <h5 class="card-title">{{titleparam}}</h5>

@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome', compact('articles'));
 });
 
+Route::get('/article/{id}/{title?}', function ($id, $title = null) {
+    $article = Article::find($id);
+    if ($article) {
+        return view('article', compact('article'));
+    }
+    return redirect()->route('/');
+})->name('article');
+
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
