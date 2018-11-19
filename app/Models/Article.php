@@ -53,7 +53,17 @@ class Article extends Model
      */
     public static function getAll($num)
     {
-        return self::select('id','title','description','user_id','date')->paginate($num);
+        $user = auth()->user();
+        if ($user->admin == 'T') {
+            return self::select('id','title','description','user_id','date')
+            ->orderBy('date','desc')
+            ->paginate($num);    
+        }else {
+            return self::select('id','title','description','user_id','date')
+            ->where('user_id','=',$user->id)
+            ->orderBy('date','desc')
+            ->paginate($num);
+        }
     }
 
     /**
