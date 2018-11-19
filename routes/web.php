@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Article;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +13,9 @@ use App\Models\Article;
 |
 */
 
-Route::get('/', function () {
-    $articles = Article::getAllByDate(12);
-    return view('welcome', compact('articles'));
-});
+Route::get('/', function (Request $request) {
+    return view('welcome', Article::searchOrList($request->search));
+})->name('welcome');
 
 Route::get('/article/{id}/{title?}', function ($id, $title = null) {
     $article = Article::find($id);

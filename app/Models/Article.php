@@ -71,4 +71,18 @@ class Article extends Model
         ->paginate($num);
     }
 
+    public static function searchOrList($search)
+    {
+        if (isset($search) && $search != "") {
+            $articles = self::orWhere('title', 'like', '%'.$search.'%')
+            ->orWhere('description', 'like', '%'.$search.'%')
+            ->paginate(12);
+        }else{
+            $articles = self::getAllByDate(12);
+            $search = "";
+        }
+
+        return compact('articles', 'search');
+    }
+
 }

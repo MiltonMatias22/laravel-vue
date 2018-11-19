@@ -48651,9 +48651,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["titulo", "url"]
@@ -48675,8 +48672,6 @@ var render = function() {
         _vm._v(_vm._s(_vm.titulo))
       ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
       _c(
         "div",
         {
@@ -48684,39 +48679,21 @@ var render = function() {
           attrs: { id: "collapsibleNavId" }
         },
         [
+          _vm._t("search"),
+          _vm._v(" "),
           _c(
             "ul",
-            { staticClass: "navbar-nav ml-auto mr-5" },
+            { staticClass: "navbar-nav mr-5" },
             [_vm._t("menu-nav-content")],
             2
           )
-        ]
+        ],
+        2
       )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler hidden-lg-up",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#collapsibleNavId",
-          "aria-controls": "collapsibleNavId",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

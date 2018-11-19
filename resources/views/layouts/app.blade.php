@@ -22,6 +22,11 @@
 <body>
     <div id="app" v-cloak>
         <navtop-component titulo="{{ config('app.name', 'Laravel') }}" url="{{ url('/') }}">
+            <form slot="search" class="form-inline mr-5 ml-auto my-lg-0" action="{{route('welcome')}}" method="get">
+                <input class="form-control mr-sm-2" type="search" name="search"
+                    placeholder="Search" aria-label="Search" value="{{isset($search) ? $search : ""}}">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+            </form>
             <!-- Authentication Links -->
             <div slot="menu-nav-content">
                 @guest
